@@ -10,7 +10,11 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Section title="">
+        <FeedbackOptions options={} onLeaveFeedback={}></FeedbackOptions>
+        <Statistics good={ } neutral={ } bad={ } total={ } positivePercentage={ } />
+        <Notification message="There is no feedback"></Notification>
+      </Section>
     </div>
   );
 };
