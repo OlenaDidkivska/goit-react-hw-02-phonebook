@@ -1,8 +1,8 @@
 import styled from 'styled-components';
+import { Field as FormikField, Form as FormikForm } from 'formik';
 
-export const ContactForm = styled.form`
-  padding: 20px;
-`;
+export const Form = styled(FormikForm)`
+padding 20px`;
 
 export const FormField = styled.div`
   margin-bottom: 10px;
@@ -11,14 +11,14 @@ export const FormField = styled.div`
   align-content: flex-start;
 `;
 
-export const Label = styled.label`
-  margin-bottom: 4px;
-`;
-
-export const Input = styled.input`
+export const Field = styled(FormikField)`
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding: 10px;
+`;
+
+export const Label = styled.label`
+  margin-bottom: 4px;
 `;
 
 export const FormButton = styled.button`
@@ -31,4 +31,8 @@ export const FormButton = styled.button`
   color: #fff;
   background-color: #4f8bba;
   font-weight: 700;
+`;
+
+export const ErrorText = styled.p`
+  color: red;
 `;

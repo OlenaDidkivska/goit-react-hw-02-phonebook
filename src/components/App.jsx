@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Contacts } from './Contacts/Contacts';
-import { Form } from './Form/Form';
+import { FormEl } from './Form/Form';
 import Filter from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -33,8 +33,8 @@ export class App extends Component {
     } else {
       const contact = {
         id: nanoid(),
-        name,
-        number,
+        name: name,
+        number: number,
       };
 
       this.setState(({ contacts }) => ({
@@ -68,12 +68,13 @@ export class App extends Component {
     return (
       <PhonebookContainer>
         <h1>Phonebook</h1>
-        <Form onSubmit={this.formSubmitHandler} />
+        <FormEl onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
         <ul>
           {visibleContacts.map(contact => (
             <Contacts
+              key={contact.id}
               id={contact.id}
               name={contact.name}
               number={contact.number}
