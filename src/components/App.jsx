@@ -4,7 +4,7 @@ import { FormEl } from './Form/Form';
 import Filter from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { PhonebookContainer } from './App.styled';
+import { PhonebookContainer, ContactsMassage } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -64,9 +64,9 @@ export class App extends Component {
       <PhonebookContainer>
         <h1>Phonebook</h1>
         <FormEl onSubmit={this.formSubmitHandler} />
+        <h2>Contacts</h2>
         {this.state.contacts.length !== 0 ? (
           <>
-            <h2>Contacts</h2>
             <Filter value={this.state.filter} onChange={this.changeFilter} />
             <ul>
               {visibleContacts.map(contact => (
@@ -81,7 +81,9 @@ export class App extends Component {
             </ul>
           </>
         ) : (
-          ''
+          <ContactsMassage>
+            Your phonebook is empty, add your first contact
+          </ContactsMassage>
         )}
       </PhonebookContainer>
     );
